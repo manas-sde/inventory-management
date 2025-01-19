@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}List Sale Orders{% endblock %}
+
+{% block content %}
+<h2>Sale Orders</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+        <th>Sale Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    {% for order in sale_orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.product.name }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>{{ order.total_price }}</td>
+        <td>{{ order.sale_date }}</td>
+        <td>{{ order.status }}</td>
+        <td>
+            {% if order.status == 'Pending' %}
+                <a href="{% url 'cancel_sale_order' order.id %}">Cancel</a> | 
+                <a href="{% url 'complete_sale_order' order.id %}">Complete</a>
+            {% else %}
+                N/A
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

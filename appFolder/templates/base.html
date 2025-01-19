@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Home{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        nav { background-color: #007BFF; color: white; padding: 10px; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; }
+        nav a:hover { text-decoration: underline; }
+        main { padding: 20px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'add_product' %}">Add Product</a>
+        <a href="{% url 'list_products' %}">List Products</a>
+        <a href="{% url 'add_supplier' %}">Add Supplier</a>
+        <a href="{% url 'list_suppliers' %}">List Suppliers</a>
+        <a href="{% url 'add_stock_movement' %}">Add Stock Movement</a>
+        <a href="{% url 'list_sale_orders' %}">List Sale Orders</a>
+        <a href="{% url 'create_sale_order' %}">Create Sale Order</a>
+        <a href="{% url 'stock_level_check' %}">Stock Level Check</a>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

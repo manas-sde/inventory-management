@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Stock Level Check{% endblock %}
+
+{% block content %}
+<h2>Stock Levels</h2>
+<table border="1">
+    <tr>
+        <th>Product</th>
+        <th>Stock Quantity</th>
+    </tr>
+    {% for product in products %}
+    <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.stock_quantity }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
